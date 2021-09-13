@@ -103,8 +103,8 @@ const addToCart = (id, price) => {
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
-  // const converted = parseFloat(element);
-  const converted = parseInt(element);
+  const converted = parseFloat(element);
+  // const converted = parseInt(element);
   return converted;
 };
 
@@ -142,8 +142,9 @@ const updateTaxAndCharge = () => {
 
 //grandTotal update function
 const updateTotal = () => {
-  const grandTotal =
+  let grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
+    grandTotal = grandTotal.toFixed(2);
   document.getElementById("total").innerText = grandTotal;
 };
